@@ -28,7 +28,7 @@ int main ()
 		printf("\nCongrats you found right number in %d !!!\n\n",counter);
 		relaunch = relaunchScript();
 	}
-    return 0;
+	return 0;
 }
 
 
