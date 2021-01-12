@@ -2,102 +2,101 @@
 #include <stdlib.h>
 #include <time.h>
 
-int PickRandomNumber(int MaxNumber)
+int pickRandomNumber(int maxNumber)
 {
-	int RandomNumber;
-	int Max;
-	const int Min = 1;
+	int randomNumber;
+	int max;
+	const int min = 1;
 
-	Max = MaxNumber;
 	srand(time(NULL));
-	RandomNumber = (rand() % (Max - Min + 1)) + Min;
-	return RandomNumber;
+	max = maxNumber;
+	randomNumber = (rand() % (max - min + 1)) + min;
+	return randomNumber;
 }
 
-int NumberRequest()
+int numberRequest()
 {
-	int NumberPick;
+	int numberPick;
 			
 	printf("Pick a number\n\n");
-	scanf("%d", &NumberPick);
-	return NumberPick;
+	scanf("%d", &numberPick);
+	return numberPick;
 }
 
-int FindNumber(int RandomNumber,int UserPick)
+void findNumber(int randomNumber,int userPick)
 {
-	if (RandomNumber > UserPick)
+	if (randomNumber > userPick)
 		{		
 			printf("\nIt's more!\n\n");
 		}	
-		else if (RandomNumber < UserPick)
+		else if (randomNumber < userPick)
 		{		
 			printf("\nIt's less !\n\n");
 		}	
 		else
 		{		
 		}	
-	return 0;
 }
 
-int RelaunchScript()
+int relaunchScript()
 {
-	int Relaunch;
+	int relaunch;
 
 	printf("Do you want to relaunch program ?\n");
 	printf("YES(1)	NO(2)\n\n");
-	scanf("%d", &Relaunch);
-	return Relaunch;
+	scanf("%d", &relaunch);
+	return relaunch;
 }
 
-int ChooseLevel()
+int chooseLevel()
 {
-	int Level;
-	int MaxNumber;
+	int level;
+	int maxNumber;
 
 	printf("Pick difficulty level\n\n");
 	printf("(1) Easy, find the number between 1 and 100 (1)\n");
 	printf("(2) Medium, find the number between 1 and 1000 (2)\n");
 	printf("(3) Hard, find the number between 1 and 10000 (3)\n");
-	scanf("%d", &Level);
-	if (Level == 1)
+	scanf("%d", &level);
+	if (level == 1)
 	{
-		MaxNumber = 100;
+		maxNumber = 100;
 	}
-	else if (Level == 2)
+	else if (level == 2)
 	{
-		MaxNumber = 1000;
+		maxNumber = 1000;
 	}
 	else
 	{
-		MaxNumber = 10000;
+		maxNumber = 10000;
 	}
-return MaxNumber;
+	return maxNumber;
 }		
 		
 int main ()
 {
-	int RandomNumber;
-	int UserPick;
-	int Counter;
-	int Relaunch;
-	int MaxNumber;
+	int randomNumber;
+	int userPick;
+	int counter;
+	int relaunch;
+	int maxNumber;
 	
-	Relaunch = 1;
-	while ((Relaunch != 2))
+	relaunch = 1;
+	while (relaunch != 2)
 	{	
-		MaxNumber = ChooseLevel();	
+		maxNumber = chooseLevel();	
 		printf("A random number has been drawn ! Find it !\n\n");
-		Counter = 0;
-		RandomNumber = PickRandomNumber(MaxNumber);
-		UserPick = 0;
-		while (UserPick != RandomNumber)
+		counter = 0;
+		randomNumber = pickRandomNumber(maxNumber);
+		userPick = 0;
+		while (userPick != randomNumber)
 		{	
-			UserPick = NumberRequest();
-			FindNumber(RandomNumber,UserPick);
-			Counter ++;
+			userPick = numberRequest();
+			findNumber(randomNumber,userPick);
+			counter ++;
 		}
-		printf("\nCongrats you found right number in %d !!!\n\n",Counter);
-		Relaunch = RelaunchScript();
+		printf("\nCongrats you found right number in %d !!!\n\n",counter);
+		relaunch = relaunchScript();
 	}
     return 0;
 }
