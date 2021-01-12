@@ -76,7 +76,7 @@ return MaxNumber;
 		
 int main ()
 {
-    int RandomNumber;
+	int RandomNumber;
 	int UserPick;
 	int Counter;
 	int Relaunch;
